@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PulseAI App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="phone">
+
+  <div class="status-bar">
+    <span>what time should I display guys?</span>
+    <span>●●● 🔋</span>
+  </div>
+
+  <!-- HOME -->
+  <section id="home" class="page active">
+    <h1>PulseAI</h1>
+    <p class="subtitle">Good morning, Akin </p>
+
+    <div class="score-card">
+      <p>Pulse ScoreToday </p>
+      <h2>90<span>/100</span></h2>
+      <small>+2 since yesterday</small>
+    </div>
+
+    <div class="insight-grid">
+      <div>🟢 BP improving</div>
+      <div>🟡 Your salt is slightly high</div>
+      <div>🔵 7,240 steps</div>
+    </div>
+
+    <div class="card">
+      <h3>Pulse Advice</h3>
+      <table>
+        <tr>
+          <th>Yesterday</th>
+          <th>Today</th>
+        </tr>
+        <tr>
+          <td>High sodium intake</td>
+          <td>Try a DASH meal</td>
+        </tr>
+        <tr>
+          <td>Only 5h sleep</td>
+          <td>Wind down earlier</td>
+        </tr>
+        <tr>
+          <td>Low activity</td>
+          <td>20 min walk</td>
+        </tr>
+      </table>
+    </div>
+
+    <button class="danger" onclick="showEmergency()">Feeling pain? Call for help</button>
+  </section>
+
+  <!-- EXPLORE -->
+  <section id="explore" class="page">
+    <h1>Explore</h1>
+    <p class="subtitle">Improve your heart health habits</p>
+
+    <div class="big-card" onclick="showExploreDetail('Diet')">
+      🍎
+      <div>
+        <h3>Diet</h3>
+        <p>DASH meals, Mediterranean recipes and food tracking</p>
+      </div>
+    </div>
+
+    <div class="big-card" onclick="showExploreDetail('Activity')">
+      🏃
+      <div>
+        <h3>Activity</h3>
+        <p>Exercise plans, steps, local clubs and fitness goals</p>
+      </div>
+    </div>
+
+    <div class="big-card" onclick="showExploreDetail('Sleep')">
+      😴
+      <div>
+        <h3>Sleep</h3>
+        <p>Sleep quality, wearable data and recovery advice</p>
+      </div>
+    </div>
+
+    <div class="card" id="exploreOutput">
+      <h3>Select a section</h3>
+      <p>Tap Diet, Activity or Sleep to view personalised guidance.</p>
+    </div>
+  </section>
+
+  <!-- CHATBOT -->
+  <section id="chat" class="page">
+    <h1>Meet Pulse</h1>
+    <p class="subtitle">Your AI heart health assistant</p>
+
+    <div class="pulse-logo">💙❤️</div>
+
+    <div class="chat-box">
+      <p class="bot">Pulse: I noticed your blood pressure has improved this week Harshil!. Good work!</p>
+      <p class="user">How can I improve my score</p>
+      <p class="bot" id="botReply">Pulse: Try reducing salty foods today and aim for a 20 minute walk.</p>
+    </div>
+
+    <div class="quick-buttons">
+      <button onclick="askPulse('score')">Explain score</button>
+      <button onclick="askPulse('sleep')">Sleep advice</button>
+      <button onclick="askPulse('diet')">Diet advice</button>
+    </div>
+  </section>
+
+  <!-- HEALTH HUB -->
+  <section id="health" class="page">
+    <h1>Health Hub</h1>
+    <p class="subtitle">Blood pressure and medication</p>
+
+    <div class="card bp-card">
+      <h3>Latest Blood Pressure</h3>
+      <h2>128 / 82</h2>
+      <p>Source: From your Smart BP Monitor</p>
+      <span class="tag green">Improving</span>
+    </div>
+
+    <div class="card">
+      <h3>Monthly Prescriptions</h3>
+      <p>Blood pressure tablet — 1 daily</p>
+      <p>Cholesterol tablet — 1 daily</p>
+      <button onclick="alert('Prototype: NHS repeat prescription request opened.')">
+        Request Repeat Prescription
+      </button>
+    </div>
+
+    <button onclick="alert('Prototype: GP appointment scheduler opened.')">
+      Book Hypertension Appointment
+    </button>
+  </section>
+
+  <!-- SETTINGS -->
+  <section id="settings" class="page">
+    <h1>Settings</h1>
+
+    <div class="card">
+      <h3>About Me!</h3>
+      <p><b>Name:</b> Akin Bea Harshil Imogen Finley Jianyhu</p>
+      <p><b>DOB:</b> 23/06/2026</p>
+      <p><b>GP:</b> DHSB Surgery</p>
+    </div>
+
+    <div class="card">
+      <h3>Connected Devices</h3>
+      <p>✅ Apple Watch</p>
+      <p>✅ Garmin</p>
+      <p>❌ Oura</p>
+    </div>
+
+    <div class="card">
+      <h3>Linked Apps</h3>
+      <p>✅ MyFitnessPal</p>
+      <p>✅ Withings</p>
+    </div>
+  </section>
+
+  <!-- EMERGENCY POPUP -->
+  <div id="emergencyPopup" class="popup">
+    <div class="popup-content">
+      <h2>Emergency Help</h2>
+      <p><b>999:</b> Life-threatening emergency</p>
+      <p><b>111:</b> Urgent but not life-threatening</p>
+      <p><b>Emergency Contact:</b> +44 7554 089871</p>
+      <button onclick="closeEmergency()">Close</button>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <button onclick="showPage('home')">🏠<span>Home</span></button>
+    <button onclick="showPage('explore')">🧭<span>Explore</span></button>
+    <button onclick="showPage('chat')">💬<span>Pulse</span></button>
+    <button onclick="showPage('health')">❤️<span>Health</span></button>
+    <button onclick="showPage('settings')">⚙️<span>Settings</span></button>
+  </nav>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
